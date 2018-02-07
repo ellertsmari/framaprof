@@ -1,0 +1,79 @@
+.quiz-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  &.active {
+    z-index: 1;
+  }
+}
+
+.quiz-modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + 20px));
+  transition: all .3s;
+  background: #dfdfdf;
+  border-radius: 4px;
+  padding: 1rem;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.quiz-modal-content {
+}
+
+.question-list-container {
+  position: relative;
+  min-width: 640px;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.question-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: transform .5s;
+}
+
+.quiz-question-text {
+  
+}
+
+.answer-checkbox {
+  height: 28px;
+  width: 28px;
+  position: relative;
+  border-radius: 6px;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    height: 0px;
+    background-color: red;
+    transform: translate(-50%, -50%);
+    transition: all .3s;
+    border-radius: 4px;
+  }
+
+  &.checked {
+    &:after {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

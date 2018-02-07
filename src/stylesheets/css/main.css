@@ -1,0 +1,156 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  box-sizing: border-box; }
+
+html {
+  font-size: 16px;
+  font-family: sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bolder;
+  margin-bottom: 2rem; }
+
+h1 {
+  font-size: 4rem; }
+
+h2 {
+  font-size: 3rem; }
+
+h3 {
+  font-size: 2.5rem; }
+
+h4 {
+  font-size: 2rem; }
+
+h5 {
+  font-size: 1.5rem; }
+
+h6 {
+  font-size: 1rem; }
+
+p {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  margin-bottom: 1.5rem; }
+
+button {
+  background-color: #fefefe;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 4px 8px; }
+  button:hover {
+    background-color: #ddd; }
+  button:disabled {
+    opacity: .5; }
+
+.main-container {
+  position: relative;
+  min-height: 100vh;
+  min-width: 100vw; }
+
+.quiz-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; }
+  .quiz-container.active {
+    z-index: 1; }
+
+.quiz-modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + 20px));
+  transition: all .3s;
+  background: #dfdfdf;
+  border-radius: 4px;
+  padding: 1rem;
+  opacity: 0; }
+  .quiz-modal-container.active {
+    opacity: 1;
+    transform: translate(-50%, -50%); }
+
+.question-list-container {
+  position: relative;
+  min-width: 640px;
+  min-height: 400px;
+  overflow: hidden; }
+
+.question-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: transform .5s; }
+
+.answer-checkbox {
+  height: 28px;
+  width: 28px;
+  position: relative;
+  border-radius: 6px; }
+  .answer-checkbox:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    height: 0px;
+    background-color: red;
+    transform: translate(-50%, -50%);
+    transition: all .3s;
+    border-radius: 4px; }
+  .answer-checkbox.checked:after {
+    width: 20px;
+    height: 20px; }
+
+/*# sourceMappingURL=main.css.map */

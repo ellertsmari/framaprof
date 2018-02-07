@@ -1,0 +1,22 @@
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bezier-easing": "^2.0.3",
+    "concurrently": "^3.5.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.0",
+    "shortid": "^2.2.8"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run start-react\" \"npm run sass\"",
+    "start-react": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "sass": "sass --watch src/stylesheets/scss:src/stylesheets/css",
+    "sass:build": "sass src/stylesheets/scss:src/stylesheets/css"
+  }
+}
