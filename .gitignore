@@ -7,7 +7,8 @@
 /coverage
 
 # production
-/build
+/public/images/non-optimized
+/build/images/non-optimized
 
 # misc
 .DS_Store

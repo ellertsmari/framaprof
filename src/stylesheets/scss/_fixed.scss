@@ -1,0 +1,13 @@
+.disco-ball {
+  background-image: url("/images/disco-ball.png");
+  width: 240px;
+  height: 340px;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: $h-padding / 2;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  transition: top .7s;
+}

@@ -1,0 +1,78 @@
+.intro-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.intro-lights {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  height: 180px;
+  left: 0;
+  background-image: url("/images/lights.png");
+  background-size: contain;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+}
+
+.intro-text-container {
+  position: absolute;
+  top: 42.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 600px;
+  max-width: 100%;
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .intro-text {
+    font-size: 1.75rem;
+
+    strong {
+      display: block;
+      font-weight: bolder;
+      margin-bottom: 3rem;
+    }
+  }
+  
+  h1 {
+    
+  }
+
+  button {
+    font-size: 2rem;
+  }
+}
+
+.intro-handyman {
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  width: 360px;
+  height: 480px;
+  background-image: url("/images/handyman.png");
+  background-size: contain;
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.intro-band {
+  position: absolute;
+  left: 3rem;
+  bottom: 1.5rem;
+  width: 360px;
+  height: 410px;
+  background-image: url("/images/band.png");
+  background-size: contain;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+}
+
+.start-quiz-button {
+}

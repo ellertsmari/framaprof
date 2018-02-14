@@ -3,4 +3,16 @@
 @import "helpers/all";
 
 @import "base";
+@import "nav";
+@import "fixed";
 @import "components/all";
+
+.background {
+  background-color: #3191c2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  transition: background-color .8s;
+}

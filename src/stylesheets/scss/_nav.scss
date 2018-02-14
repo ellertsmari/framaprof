@@ -1,0 +1,14 @@
+nav#main-nav {
+  position: fixed;
+  bottom: $v-padding - 2rem;
+  right: $h-padding;
+  display: flex;
+  z-index: 100;
+
+  p {
+    color: white;
+    margin-bottom: 0;
+    margin-left: 1rem;
+    font-size: 1rem;
+  }
+}

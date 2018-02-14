@@ -1,0 +1,102 @@
+.preamble-text-container {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 600px;
+  max-width: 100%;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  } 
+}
+
+.preamble-text {
+  font-size: 1.5rem;
+
+  strong {
+    white-space: nowrap;
+    display: block;
+  }
+}
+
+.preamble-start-quiz-button {
+  background: none;
+  position: relative;
+  border: none;
+  color: white;
+  display: block;
+  margin: 0 auto 2rem;
+  max-width: 260px;
+}
+
+.preamble-take-quiz-text {
+  font-size: 1.5rem;
+}
+
+.preamble-start-quiz-button-background {
+  background-color: #e44b4a;
+  position: absolute;
+  left: 2.25rem;
+  right: 2rem;
+  height: 52px;
+  top: 0;
+  z-index: -1;
+  transform: perspective(248px) rotate3d(6.5, 7, -1.5, 30deg) translate(10px, -6px);
+
+}
+
+.preamble-with-facebook {
+  text-align: center;
+  color: #e44b4a;
+  white-space: nowrap;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.preamble-start-quiz-no-auth {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+  color: rgba(0,0,0,.9);
+}
+
+.preamble-cable {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 140px;
+  left: 0;
+  background-image: url("/images/cables.png");
+  background-size: contain;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+}
+
+.preamble-computer {
+  position: absolute;
+  bottom: 5rem;
+  left: 5rem;
+  height: 300px;
+  width: 300px;
+  background-image: url("/images/computer.png");
+  background-size: contain;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+}
+
+.preamble-hammer {
+  position: absolute;
+  bottom: 5rem;
+  right: 4rem;
+  height: 140px;
+  width: 300px;
+  background-image: url("/images/hammer.png");
+  background-size: contain;
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+}

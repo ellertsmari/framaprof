@@ -3,6 +3,16 @@ import Intro from "./js/components/Intro.js";
 import Quiz from "./js/components/Quiz.js";
 import Results from "./js/components/Results.js";
 import Layout from "./js/components/Layout";
+import Slide from "./js/components/Slide";
+import FixedContent from "./js/components/FixedContent";
+import Preamble from "./js/components/Preamble";
+
+const colors = [
+  "#3191c2",
+  "#e44b4a",
+  "#00bfad",
+  "#00bfad",
+];
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +21,32 @@ class App extends Component {
     this.state = {
       onScreen: "INTRO",
       scores: [],
+      pageIndex: 0,
     };
+
+    this.screens = [
+      { component: Intro, }
+    ];
+
+    this.componentArr = [
+      props => <Intro
+        {...props}
+        nextScreen={() => this.setState({ pageIndex: 1 })}
+      />,
+      props => <Preamble
+        nextScreen={() => this.setState({ pageIndex: 2 })}
+        {...props}
+      />,
+      props => <Quiz
+        {...props}
+        updateScore={this.updateScore}
+        completeQuiz={() => this.setState({ pageIndex: 3 })}
+      />,
+      props => <Results
+        {...props}
+        score={this.getScore()}
+      />
+    ];
 
     this.updateScore = this.updateScore.bind(this);
     this.getScore = this.getScore.bind(this);
@@ -54,22 +89,37 @@ class App extends Component {
     return score;
   }
 
+  setPageIndex(pageIndex) {
+    this.setState({
+      pageIndex,
+    });
+  }
+
   render() {
     return (
       <Layout>
-        <Intro
-          isActive={this.state.active === "INTRO"}
-          startQuiz={() => this.setState({ active: "QUIZ" })}
-        />
-        <Quiz
-          isActive={this.state.active === "QUIZ"}
-          updateScore={this.updateScore}
-          completeQuiz={() => this.setState({ active: "RESULTS" })}
-        />
-        <Results
-          isActive={this.state.active === "RESULTS"}
-          score={this.getScore()}
-        />
+        <FixedContent pageIndex={this.state.pageIndex} />
+        <div
+          className="background"
+          style={{
+            backgroundColor: colors[this.state.pageIndex],
+          }}
+        >
+          <div className="slide-container">
+            {
+              this.componentArr
+                .map((Component, i) => (
+                  <Slide
+                    key={i}
+                    currentPage={this.state.pageIndex}
+                    pageIndex={i}
+                  >
+                    <Component isActive={this.state.pageIndex === i} />
+                  </Slide>
+                ))
+            }
+          </div>
+        </div>
       </Layout>
     );
   }

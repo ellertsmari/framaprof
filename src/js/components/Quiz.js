@@ -58,6 +58,12 @@ export default class Quiz extends React.Component {
       ? null
       : aIndex;
 
+    console.log(this.state.answers.map((a, i) => (
+      i === qIndex
+        ? newIndex
+        : a
+    )));
+
     this.setState({
       answers: this.state.answers.map((a, i) => (
         i === qIndex

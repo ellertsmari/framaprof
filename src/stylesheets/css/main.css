@@ -81,19 +81,51 @@ p {
   font-weight: 400;
   margin-bottom: 1.5rem; }
 
-button {
+strong {
+  font-weight: bold; }
+
+.btn {
   background-color: #fefefe;
   border: 1px solid rgba(0, 0, 0, 0.5);
   padding: 4px 8px; }
-  button:hover {
+  .btn:hover {
     background-color: #ddd; }
-  button:disabled {
+  .btn:disabled {
     opacity: .5; }
+
+button {
+  outline: none; }
+  button:hover {
+    cursor: pointer; }
+
+nav#main-nav {
+  position: fixed;
+  bottom: 2rem;
+  right: 6rem;
+  display: flex;
+  z-index: 100; }
+  nav#main-nav p {
+    color: white;
+    margin-bottom: 0;
+    margin-left: 1rem;
+    font-size: 1rem; }
+
+.disco-ball {
+  background-image: url("/images/disco-ball.png");
+  width: 240px;
+  height: 340px;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 3rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  transition: top .7s; }
 
 .main-container {
   position: relative;
-  min-height: 100vh;
-  min-width: 100vw; }
+  min-height: 100vh; }
 
 .quiz-container {
   position: fixed;
@@ -111,7 +143,6 @@ button {
   left: 50%;
   transform: translate(-50%, calc(-50% + 20px));
   transition: all .3s;
-  background: #dfdfdf;
   border-radius: 4px;
   padding: 1rem;
   opacity: 0; }
@@ -152,5 +183,185 @@ button {
   .answer-checkbox.checked:after {
     width: 20px;
     height: 20px; }
+
+.slide-container {
+  position: absolute;
+  top: 4rem;
+  bottom: 4rem;
+  right: 6rem;
+  left: 6rem;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden; }
+
+.slide-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  box-shadow: 0 -40px 40px rgba(0, 0, 0, 0.5);
+  background-image: url("/images/stage.jpg");
+  background-size: cover;
+  background-position: 50% 100%;
+  transition: transform .9s, box-shadow 1s ease-in; }
+  .slide-content.active {
+    box-shadow: 0 6px 80px rgba(0, 0, 0, 0.6); }
+
+.intro-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0; }
+
+.intro-lights {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  height: 180px;
+  left: 0;
+  background-image: url("/images/lights.png");
+  background-size: contain;
+  background-position: 50% 0;
+  background-repeat: no-repeat; }
+
+.intro-text-container {
+  position: absolute;
+  top: 42.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 600px;
+  max-width: 100%; }
+  .intro-text-container h1 {
+    font-size: 3.5rem; }
+  .intro-text-container .intro-text {
+    font-size: 1.75rem; }
+    .intro-text-container .intro-text strong {
+      display: block;
+      font-weight: bolder;
+      margin-bottom: 3rem; }
+  .intro-text-container button {
+    font-size: 2rem; }
+
+.intro-handyman {
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  width: 360px;
+  height: 480px;
+  background-image: url("/images/handyman.png");
+  background-size: contain;
+  background-position: 100% 100%;
+  background-repeat: no-repeat; }
+
+.intro-band {
+  position: absolute;
+  left: 3rem;
+  bottom: 1.5rem;
+  width: 360px;
+  height: 410px;
+  background-image: url("/images/band.png");
+  background-size: contain;
+  background-position: 0 100%;
+  background-repeat: no-repeat; }
+
+.preamble-text-container {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 600px;
+  max-width: 100%; }
+  .preamble-text-container h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem; }
+
+.preamble-text {
+  font-size: 1.5rem; }
+  .preamble-text strong {
+    white-space: nowrap;
+    display: block; }
+
+.preamble-start-quiz-button {
+  background: none;
+  position: relative;
+  border: none;
+  color: white;
+  display: block;
+  margin: 0 auto 2rem;
+  max-width: 260px; }
+
+.preamble-take-quiz-text {
+  font-size: 1.5rem; }
+
+.preamble-start-quiz-button-background {
+  background-color: #e44b4a;
+  position: absolute;
+  left: 2.25rem;
+  right: 2rem;
+  height: 52px;
+  top: 0;
+  z-index: -1;
+  transform: perspective(248px) rotate3d(6.5, 7, -1.5, 30deg) translate(10px, -6px); }
+
+.preamble-with-facebook {
+  text-align: center;
+  color: #e44b4a;
+  white-space: nowrap;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 0; }
+
+.preamble-start-quiz-no-auth {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.9); }
+
+.preamble-cable {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 140px;
+  left: 0;
+  background-image: url("/images/cables.png");
+  background-size: contain;
+  background-position: 50% 0;
+  background-repeat: no-repeat; }
+
+.preamble-computer {
+  position: absolute;
+  bottom: 5rem;
+  left: 5rem;
+  height: 300px;
+  width: 300px;
+  background-image: url("/images/computer.png");
+  background-size: contain;
+  background-position: 0 100%;
+  background-repeat: no-repeat; }
+
+.preamble-hammer {
+  position: absolute;
+  bottom: 5rem;
+  right: 4rem;
+  height: 140px;
+  width: 300px;
+  background-image: url("/images/hammer.png");
+  background-size: contain;
+  background-position: 100% 100%;
+  background-repeat: no-repeat; }
+
+.background {
+  background-color: #3191c2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  transition: background-color .8s; }
 
 /*# sourceMappingURL=main.css.map */
