@@ -1,5 +1,6 @@
 .results-container {
   @include text-container;
+  margin-top: 10vh;
   text-align: left;
   max-width: 1080px;
 }
@@ -7,6 +8,7 @@
 .results-top-list {
   display: flex;
   margin-bottom: 2rem;
+  overflow-x: auto;
 }
 
 .result-item {
