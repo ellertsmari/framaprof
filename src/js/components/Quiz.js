@@ -1,4 +1,5 @@
 import React from "react";
+import PrimaryButton from "./PrimaryButton";
 
 export default class Quiz extends React.Component {
   constructor(props) {
@@ -109,7 +110,7 @@ export default class Quiz extends React.Component {
     };
 
     return (
-      <div className={"quiz-modal-container" + (this.props.isActive ? " active" : "")}>
+      <div className="quiz-container">
         <div className="question-list-container">
           {
             this.questions.map((question, qIndex) => (
@@ -153,6 +154,7 @@ export default class Quiz extends React.Component {
             </button>
           </div>
         </div>
+        {/*
         <button onClick={this.prev}>Back</button>
         <button
           onClick={this.next}
@@ -160,6 +162,14 @@ export default class Quiz extends React.Component {
         >
           Next
         </button>
+        */}
+        <PrimaryButton
+          color="#00bfad"
+          onClick={this.next}
+          disabled={typeof this.state.answers[this.state.questionIndex] !== "number"}
+        >
+          Næsta spurning
+        </PrimaryButton>
       </div>
     )
   }

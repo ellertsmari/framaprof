@@ -1,4 +1,5 @@
 import React from "react";
+import PrimaryButton from "./PrimaryButton";
 
 export default class Intro extends React.Component {
   constructor(props) {
@@ -17,9 +18,9 @@ export default class Intro extends React.Component {
             Það geta ekki allir orðið Eurovision stjörnur en það geta allir átt sinn frama!<br />
             <strong>Hver er þinn frami?</strong>
           </p>
-          <button className="start-quiz-button" onClick={this.props.nextScreen}>
+          <PrimaryButton onClick={this.props.nextScreen} color="#3191c2">
             Byrja prófið
-          </button>
+          </PrimaryButton>
         </div>
       </div>
     );

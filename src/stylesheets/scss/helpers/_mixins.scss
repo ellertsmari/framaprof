@@ -1,7 +1,7 @@
-@mixin set-values($properties, $breakpoints, $values) {
+@mixin set-values($properties, $breakpoints, $values, $cond: max-width) {
   @if (type-of($properties) == list) {
     @each $breakpoint in $breakpoints {
-      @media screen and (max-width: $breakpoint) {
+      @media screen and ($cond: $breakpoint) {
         @each $property in $properties {
           @if ($property) {
             $i: index($breakpoints, $breakpoint);
@@ -17,10 +17,27 @@
     @each $breakpoint in $breakpoints {
       $i: index($breakpoints, $breakpoint);
       @if (nth($values, $i) != NULL) {
-        @media screen and (max-width: $breakpoint) {
+        @media screen and ($cond: $breakpoint) {
           #{$properties}: nth($values, $i);
         }
       }
     }
+  }
+}
+
+@mixin text-container {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  bottom: 0;
+  transform: translate(-50%, 0);
+  text-align: center;
+  width: 680px;
+  padding: 0 40px;
+  max-width: 100%;
+  overflow: hidden;
+
+  @media screen and (max-width: 500px) {
+    padding: 0 20px;
   }
 }

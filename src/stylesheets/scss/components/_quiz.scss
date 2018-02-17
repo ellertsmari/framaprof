@@ -11,20 +11,11 @@
   }
 }
 
-.quiz-modal-container {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 660px;
-  padding: 0 30px;
-  max-width: 100%;
-  overflow: hidden;
+.quiz-container {
+  @include text-container;
+  text-align: left;
 
-  @include set-values(top, $breakpoints, 54% 52% 50% NULL);
-}
-
-.quiz-modal-content {
+  @include set-values(top, 700px 600px 500px 400px, 20% 15% 10% 5%, max-height);
 }
 
 .question-list-container {
@@ -43,6 +34,7 @@
 
   h2 {
     font-size: 2rem;
+    padding-left: 3rem;
   }
 
   ul {
@@ -55,7 +47,7 @@
 
   li button {
     background: transparent;
-    padding: 0;
+    padding: 4px 0 0;
     border: 0;
     font-size: 1.25rem;
   }
@@ -66,10 +58,12 @@
 }
 
 .answer-checkbox {
-  height: 28px;
-  width: 28px;
+  height: 2rem;
+  width: 2rem;
   position: relative;
-  border-radius: 6px;
+  vertical-align: top;
+  margin-right: 1rem;
+  display: inline-block;
   
   &:after {
     content: "";
@@ -78,16 +72,16 @@
     left: 50%;
     width: 0px;
     height: 0px;
-    background-color: red;
+    background-color: #00bfad;
     transform: translate(-50%, -50%);
     transition: all .3s;
-    border-radius: 4px;
+    border-radius: 50%;
   }
 
   &.checked {
     &:after {
-      width: 20px;
-      height: 20px;
+      width: 2rem;
+      height: 2rem;
     }
   }
 }

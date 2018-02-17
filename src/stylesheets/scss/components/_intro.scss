@@ -21,15 +21,7 @@
 }
 
 .intro-text-container {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 680px;
-  padding: 0 40px;
-  max-width: 100%;
-
-  @include set-values(top, $breakpoints, 45% 53% 50% NULL);
+  @include text-container;
 
   h1 {
     @include set-values(font-size, $breakpoints, 3.5rem 3rem NULL 2.25rem);
@@ -50,7 +42,7 @@
   }
 
   button {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -65,11 +57,13 @@
   background-position: 100% 100%;
   background-repeat: no-repeat;
 
-  @media screen and (max-width: 1280px) {
-    right: -2rem;
-    bottom: 0rem;
-    width: 230px;
-    height: 400px;
+  @media screen and (max-width: 1400px) {
+    width: 20vw;
+  }
+
+  @media screen and (max-height: 800px) {
+    bottom: -1rem;
+    height: 40vh;
   }
 
   @media screen and (max-width: $md) {

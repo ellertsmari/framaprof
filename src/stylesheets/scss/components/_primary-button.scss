@@ -1,0 +1,40 @@
+.primary-button-container {
+  background: none;
+  position: relative;
+  border: none;
+  color: white;
+  display: block;
+  margin: 0 auto 1rem;
+  max-width: 260px;
+
+  &:disabled {
+    .primary-button-background {
+      opacity: .6;
+    }
+  }
+}
+
+.primary-button-text {
+  font-size: 1.5rem;
+  margin: 0;
+
+  @media screen and (max-width: $xs) {
+    font-size: 1.25rem;
+  }
+}
+
+.primary-button-background {
+  background-color: #e44b4a;
+  position: absolute;
+  left: -20px;
+  right: -20px;
+  height: 52px;
+  top: 0;
+  z-index: -1;
+  transition: opacity .5s;
+  transform: perspective(248px) rotate3d(6.5, 7, -1.5, 30deg) translate(10px, -6px);
+
+  @media screen and (max-width: $xs) {
+    height: 44px;
+  }
+}

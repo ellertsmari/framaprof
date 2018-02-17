@@ -1,4 +1,5 @@
 import React from "react";
+import PrimaryButton from "./PrimaryButton";
 
 export default class Preamble extends React.Component {
   render() {
@@ -15,15 +16,12 @@ export default class Preamble extends React.Component {
             <strong>Til þess þurfum við iðn og tæknimenntað fólk</strong>
             - hvaða hlutverk tekur þú að þér? -
           </p>
-          <button className="preamble-start-quiz-button" onClick={this.props.nextScreen}>
-            <div className="preamble-start-quiz-button-background" />
-            <p className="preamble-take-quiz-text">
-              Taka próf
-            </p>
-            <p className="preamble-with-facebook">
-              Með Facebook Auðkenningu
-            </p> 
-          </button>
+          <PrimaryButton onClick={this.props.nextScreen} color="#e44b4a">
+            Taka próf
+          </PrimaryButton>
+          <p className="preamble-with-facebook">
+            Með Facebook Auðkenningu
+          </p> 
           <button className="preamble-start-quiz-no-auth">
             Taka próf án auðkenningar
           </button>

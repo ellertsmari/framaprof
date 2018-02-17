@@ -1,7 +1,7 @@
 .disco-ball {
   background-image: url("/images/disco-ball.png");
-  width: 240px;
-  height: 340px;
+  width: 200px;
+  height: 300px;
   position: fixed;
   z-index: 100;
   top: 0;
@@ -9,6 +9,16 @@
   background-repeat: no-repeat;
   background-position: 100% 0;
   transition: top .7s;
+  right: nth($disco-ball-right, 1);
+
   @include set-values(right, $breakpoints, $disco-ball-right);
-  @include set-values(width, $breakpoints, 240px 160px 120px 100px);
+  @include set-values(width, $breakpoints, 200px 140px 120px NULL);
+
+  @media screen and (max-width: $xs) {
+    display: none;
+  }
+
+  @media screen and (max-height: 600px) {
+    max-height: 240px;
+  }
 }

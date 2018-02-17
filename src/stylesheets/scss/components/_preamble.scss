@@ -1,14 +1,8 @@
 .preamble-text-container {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 660px;
-  padding: 0 30px;
-  max-width: 100%;
+  @include text-container;
 
-  @include set-values(top, $breakpoints, 54% 52% 50% NULL);
+
+  @include set-values(top, 700px 600px 500px 400px, 20% 15% 10% 5%, max-height);
 
   h2 {
     font-size: 2rem;
@@ -22,37 +16,11 @@
 .preamble-text {
   font-size: 1.5rem;
 
-  @include set-values(font-size, $breakpoints, NULL 1.25rem 1rem NULL);
+  @include set-values(font-size, $md $sm, 1.25rem 1rem);
 
   strong {
     display: block;
   }
-}
-
-.preamble-start-quiz-button {
-  background: none;
-  position: relative;
-  border: none;
-  color: white;
-  display: block;
-  margin: 0 auto 2rem;
-  max-width: 260px;
-}
-
-.preamble-take-quiz-text {
-  font-size: 1.5rem;
-}
-
-.preamble-start-quiz-button-background {
-  background-color: #e44b4a;
-  position: absolute;
-  left: 2.25rem;
-  right: 2rem;
-  height: 52px;
-  top: 0;
-  z-index: -1;
-  transform: perspective(248px) rotate3d(6.5, 7, -1.5, 30deg) translate(10px, -6px);
-
 }
 
 .preamble-with-facebook {
@@ -84,6 +52,11 @@
   background-repeat: no-repeat;
 
   @include set-values(height, $breakpoints, 140px 120px 100px NULL);
+  @include set-values(top, 700px, -30px, max-height);
+
+  @media screen and (max-height: 620px) {
+    display: none;
+  }
 }
 
 .preamble-computer {
