@@ -26,15 +26,12 @@
 }
 
 @mixin text-container {
-  position: absolute;
-  left: 50%;
-  top: 30%;
+  position: relative;
+  margin: 30vh auto 0;
   bottom: 0;
-  transform: translate(-50%, 0);
   text-align: center;
-  width: 680px;
+  max-width: 680px;
   padding: 0 40px;
-  max-width: 100%;
   overflow: hidden;
 
   @media screen and (max-width: 500px) {

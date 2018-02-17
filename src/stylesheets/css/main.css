@@ -197,44 +197,32 @@ nav#main-nav {
     z-index: 1; }
 
 .quiz-container {
-  position: absolute;
-  left: 50%;
-  top: 30%;
+  position: relative;
+  margin: 30vh auto 0;
   bottom: 0;
-  transform: translate(-50%, 0);
   text-align: center;
-  width: 680px;
+  max-width: 680px;
   padding: 0 40px;
-  max-width: 100%;
   overflow: hidden;
-  text-align: left; }
+  text-align: left;
+  margin-top: 15vh;
+  overflow: visible; }
   @media screen and (max-width: 500px) {
     .quiz-container {
       padding: 0 20px; } }
-  @media screen and (max-height: 700px) {
-    .quiz-container {
-      top: 20%; } }
-  @media screen and (max-height: 600px) {
-    .quiz-container {
-      top: 15%; } }
   @media screen and (max-height: 500px) {
     .quiz-container {
-      top: 10%; } }
+      margin-top: 10vh; } }
   @media screen and (max-height: 400px) {
     .quiz-container {
-      top: 5%; } }
-
-.question-list-container {
-  position: relative;
-  height: 400px;
-  overflow: hidden; }
+      margin-top: 5vh; } }
 
 .question-container {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  overflow: hidden;
   transition: transform .5s; }
   .question-container h2 {
     font-size: 2rem;
@@ -242,16 +230,18 @@ nav#main-nav {
   .question-container ul {
     list-style-type: none; }
   .question-container li {
+    display: flex;
     margin-bottom: .5rem; }
   .question-container li button {
     background: transparent;
     padding: 4px 0 0;
     border: 0;
-    font-size: 1.25rem; }
+    font-size: 1.25rem;
+    text-align: left; }
 
 .answer-checkbox {
   height: 2rem;
-  width: 2rem;
+  min-width: 2rem;
   position: relative;
   vertical-align: top;
   margin-right: 1rem;
@@ -323,6 +313,8 @@ nav#main-nav {
   background-image: url("/images/stage.jpg");
   background-size: cover;
   background-position: 50% 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
   transition: transform .9s, box-shadow 1s ease-in; }
   .slide-content.active {
     box-shadow: 0 6px 80px rgba(0, 0, 0, 0.6); }
@@ -358,15 +350,12 @@ nav#main-nav {
       height: 90px; } }
 
 .intro-text-container {
-  position: absolute;
-  left: 50%;
-  top: 30%;
+  position: relative;
+  margin: 30vh auto 0;
   bottom: 0;
-  transform: translate(-50%, 0);
   text-align: center;
-  width: 680px;
+  max-width: 680px;
   padding: 0 40px;
-  max-width: 100%;
   overflow: hidden; }
   @media screen and (max-width: 500px) {
     .intro-text-container {
@@ -444,31 +433,28 @@ nav#main-nav {
       display: none; } }
 
 .preamble-text-container {
-  position: absolute;
-  left: 50%;
-  top: 30%;
+  position: relative;
+  margin: 30vh auto 0;
   bottom: 0;
-  transform: translate(-50%, 0);
   text-align: center;
-  width: 680px;
+  max-width: 680px;
   padding: 0 40px;
-  max-width: 100%;
   overflow: hidden; }
   @media screen and (max-width: 500px) {
     .preamble-text-container {
       padding: 0 20px; } }
   @media screen and (max-height: 700px) {
     .preamble-text-container {
-      top: 20%; } }
+      margin-top: 20%; } }
   @media screen and (max-height: 600px) {
     .preamble-text-container {
-      top: 15%; } }
+      margin-top: 15%; } }
   @media screen and (max-height: 500px) {
     .preamble-text-container {
-      top: 10%; } }
+      margin-top: 10%; } }
   @media screen and (max-height: 400px) {
     .preamble-text-container {
-      top: 5%; } }
+      margin-top: 5%; } }
   .preamble-text-container h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -572,6 +558,67 @@ nav#main-nav {
   @media screen and (max-width: 1000px) {
     .preamble-hammer {
       display: none; } }
+
+.results-container {
+  position: relative;
+  margin: 30vh auto 0;
+  bottom: 0;
+  text-align: center;
+  max-width: 680px;
+  padding: 0 40px;
+  overflow: hidden;
+  text-align: left;
+  max-width: 1080px; }
+  @media screen and (max-width: 500px) {
+    .results-container {
+      padding: 0 20px; } }
+
+.results-top-list {
+  display: flex;
+  margin-bottom: 2rem; }
+
+.result-item {
+  margin-right: 2rem; }
+  .result-item p {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin-bottom: 6px; }
+
+.result-item-value {
+  color: #00bfad; }
+
+.results-main-container {
+  display: flex; }
+
+.results-text-container {
+  flex-basis: 0;
+  flex-grow: 1; }
+  .results-text-container h2 {
+    font-size: 2.5rem;
+    color: #00bfad; }
+  .results-text-container p {
+    font-size: 1rem;
+    font-weight: lighter;
+    margin-bottom: .5rem; }
+    .results-text-container p:first-child {
+      margin-bottom: .5rem; }
+  .results-text-container a {
+    color: rgba(0, 0, 0, 0.8); }
+
+.results-about-the-test {
+  margin-top: 2rem; }
+
+.results-tv-container {
+  flex-basis: 300px;
+  flex-grow: 0;
+  margin-left: 2rem; }
+  @media screen and (max-width: 1000px) {
+    .results-tv-container {
+      display: none; } }
+
+.results-tv {
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 300px; }
 
 .background {
   background-color: #3191c2;

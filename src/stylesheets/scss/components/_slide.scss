@@ -21,9 +21,15 @@
   background-image: url("/images/stage.jpg");
   background-size: cover;
   background-position: 50% 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
   transition: transform .9s, box-shadow 1s ease-in;
 
   &.active {
     box-shadow: 0 6px 80px rgba(0,0,0,.6);
   }
+}
+
+.slide-scroll-container {
+
 }

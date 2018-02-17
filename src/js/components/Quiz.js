@@ -95,6 +95,13 @@ export default class Quiz extends React.Component {
                     ))
                   }
                 </ul>
+                <PrimaryButton
+                  color="#00bfad"
+                  onClick={this.next}
+                  disabled={typeof this.state.answers[qIndex] !== "number"}
+                >
+                  Næsta spurning
+                </PrimaryButton>
               </div>
             ))
           }
@@ -120,13 +127,6 @@ export default class Quiz extends React.Component {
           Next
         </button>
         */}
-        <PrimaryButton
-          color="#00bfad"
-          onClick={this.next}
-          disabled={typeof this.state.answers[this.state.questionIndex] !== "number"}
-        >
-          Næsta spurning
-        </PrimaryButton>
       </div>
     )
   }

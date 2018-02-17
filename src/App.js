@@ -55,16 +55,37 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://framaprof.vefskoli.is/api")
-      .then(({ data }) => {
-        this.setState({
-          loading: false,
-          questions: data.results,
-        });
+    const useFakeData = false;
+    if (useFakeData) {
+      this.setState({
+        loading: false,
+        questions:[
+          {
+            question: "Hér er spurning",
+            answers: [
+              {
+                text: "Hér er svar 1",
+                scores: [
+                  { name: "Byggingatækni", score: 1 },
+                ],
+              },
+            ],
+          },
+        ]
       })
-      .catch((err) => {
-        console.error(err);
-      });
+    } else {
+      axios.get("http://framaprof.vefskoli.is/api/")
+        .then(({ data }) => {
+          console.log(data.results);
+          this.setState({
+            loading: false,
+            questions: data.results,
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
   }
 
   updateScore(newScore, qIndex) {

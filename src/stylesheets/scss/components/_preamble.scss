@@ -1,8 +1,7 @@
 .preamble-text-container {
   @include text-container;
 
-
-  @include set-values(top, 700px 600px 500px 400px, 20% 15% 10% 5%, max-height);
+  @include set-values(margin-top, 700px 600px 500px 400px, 20% 15% 10% 5%, max-height);
 
   h2 {
     font-size: 2rem;

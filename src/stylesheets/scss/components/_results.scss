@@ -1,0 +1,71 @@
+.results-container {
+  @include text-container;
+  text-align: left;
+  max-width: 1080px;
+}
+
+.results-top-list {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.result-item {
+  margin-right: 2rem;
+  
+  p {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin-bottom: 6px;
+  }
+}
+
+.result-item-value {
+  color: $results-color;
+}
+
+.results-main-container {
+  display: flex;
+}
+
+.results-text-container {
+  flex-basis: 0;
+  flex-grow: 1;
+
+  h2 {
+    font-size: 2.5rem;
+    color: $results-color;
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: lighter;
+    margin-bottom: .5rem;
+  
+    &:first-child {
+      margin-bottom: .5rem;
+    }
+  }
+
+  a {
+    color: rgba(0,0,0,.8);
+  }
+}
+
+.results-about-the-test {
+  margin-top: 2rem;
+}
+
+.results-tv-container {
+  flex-basis: 300px;
+  flex-grow: 0;
+  margin-left: 2rem;
+
+  @media screen and (max-width: $md) {
+    display: none;
+  }
+}
+
+.results-tv {
+  background-color: rgba(0,0,0,.2);
+  height: 300px;
+}
