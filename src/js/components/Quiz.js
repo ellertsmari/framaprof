@@ -110,16 +110,16 @@ export default class Quiz extends React.Component {
 
     return (
       <div className={"quiz-modal-container" + (this.props.isActive ? " active" : "")}>
-        <div className="quiz-modal-content">
-          <div className="question-list-container">
-            {
-              this.questions.map((question, qIndex) => (
-                <div
-                  key={qIndex}
-                  className="question-container"
-                  style={{ transform: getQuestionTranslate(qIndex) }}
-                >
-                  <h2>{question.text}</h2>
+        <div className="question-list-container">
+          {
+            this.questions.map((question, qIndex) => (
+              <div
+                key={qIndex}
+                className="question-container"
+                style={{ transform: getQuestionTranslate(qIndex) }}
+              >
+                <h2>{question.text}</h2>
+                <ul>
                   {
                     question.answers.map((answer, aIndex) => (
                       <li key={aIndex}>
@@ -136,30 +136,30 @@ export default class Quiz extends React.Component {
                       </li>
                     ))
                   }
-                </div>
-              ))
-            }
-            <div
-              className="question-container"
-              style={{ transform: getQuestionTranslate(this.questions.length) }}
-            >
-              <h2>Tilbúinn að sjá niðurstöðurnar?</h2>
-              <p>
-                Smelltu á takkan fyrir neðan til þess að sjá niðurstöðurnar.
-              </p>
-              <button onClick={this.props.completeQuiz}>
-                Checkum þetta
-              </button>
-            </div>
-          </div>
-          <button onClick={this.prev}>Back</button>
-          <button
-            onClick={this.next}
-            disabled={typeof this.state.answers[this.state.questionIndex] !== "number"}
+                </ul>
+              </div>
+            ))
+          }
+          <div
+            className="question-container"
+            style={{ transform: getQuestionTranslate(this.questions.length) }}
           >
-            Next
-          </button>
+            <h2>Tilbúinn að sjá niðurstöðurnar?</h2>
+            <p>
+              Smelltu á takkan fyrir neðan til þess að sjá niðurstöðurnar.
+            </p>
+            <button onClick={this.props.completeQuiz}>
+              Checkum þetta
+            </button>
+          </div>
         </div>
+        <button onClick={this.prev}>Back</button>
+        <button
+          onClick={this.next}
+          disabled={typeof this.state.answers[this.state.questionIndex] !== "number"}
+        >
+          Next
+        </button>
       </div>
     )
   }

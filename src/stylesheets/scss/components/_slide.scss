@@ -1,9 +1,7 @@
 .slide-container {
   position: absolute;
-  top: $v-padding;
-  bottom: $v-padding;
-  right: $h-padding;
-  left: $h-padding;
+  @include set-values(top bottom, $breakpoints, $v-padding);
+  @include set-values(left right, $breakpoints, $h-padding);
   background: white;
   border-radius: 20px;
   overflow: hidden;

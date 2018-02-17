@@ -1,6 +1,11 @@
 $xs: 500px;
 $sm: 640px;
-$md: 1080px;
+$md: 1000px;
+$lg: 1400px;
 
-$h-padding: 6rem;
-$v-padding: 4rem;
+$h-padding: 6rem, 4rem, 2rem, 1rem;
+$v-padding: 3rem, 2rem, 1.5rem, 1rem;
+
+$disco-ball-right: 3rem 2.5rem 2rem 1.5rem;
+
+$breakpoints: $lg, $md, $sm, $xs;

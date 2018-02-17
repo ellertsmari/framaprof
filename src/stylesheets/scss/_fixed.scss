@@ -5,9 +5,10 @@
   position: fixed;
   z-index: 100;
   top: 0;
-  right: $h-padding / 2;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 100% 0;
   transition: top .7s;
+  @include set-values(right, $breakpoints, $disco-ball-right);
+  @include set-values(width, $breakpoints, 240px 160px 120px 100px);
 }

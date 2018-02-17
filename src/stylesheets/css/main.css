@@ -100,8 +100,8 @@ button {
 
 nav#main-nav {
   position: fixed;
-  bottom: 2rem;
-  right: 6rem;
+  bottom: 3rem, 2rem, 1.5rem, 1rem-2rem;
+  right: 6rem, 4rem, 2rem, 1rem;
   display: flex;
   z-index: 100; }
   nav#main-nav p {
@@ -117,11 +117,34 @@ nav#main-nav {
   position: fixed;
   z-index: 100;
   top: 0;
-  right: 3rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 100% 0;
   transition: top .7s; }
+  @media screen and (max-width: 1400px) {
+    .disco-ball {
+      right: 3rem; } }
+  @media screen and (max-width: 1000px) {
+    .disco-ball {
+      right: 2.5rem; } }
+  @media screen and (max-width: 640px) {
+    .disco-ball {
+      right: 2rem; } }
+  @media screen and (max-width: 500px) {
+    .disco-ball {
+      right: 1.5rem; } }
+  @media screen and (max-width: 1400px) {
+    .disco-ball {
+      width: 240px; } }
+  @media screen and (max-width: 1000px) {
+    .disco-ball {
+      width: 160px; } }
+  @media screen and (max-width: 640px) {
+    .disco-ball {
+      width: 120px; } }
+  @media screen and (max-width: 500px) {
+    .disco-ball {
+      width: 100px; } }
 
 .main-container {
   position: relative;
@@ -139,21 +162,26 @@ nav#main-nav {
 
 .quiz-modal-container {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
-  transform: translate(-50%, calc(-50% + 20px));
-  transition: all .3s;
-  border-radius: 4px;
-  padding: 1rem;
-  opacity: 0; }
-  .quiz-modal-container.active {
-    opacity: 1;
-    transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+  width: 660px;
+  padding: 0 30px;
+  max-width: 100%;
+  overflow: hidden; }
+  @media screen and (max-width: 1400px) {
+    .quiz-modal-container {
+      top: 54%; } }
+  @media screen and (max-width: 1000px) {
+    .quiz-modal-container {
+      top: 52%; } }
+  @media screen and (max-width: 640px) {
+    .quiz-modal-container {
+      top: 50%; } }
 
 .question-list-container {
   position: relative;
-  min-width: 640px;
-  min-height: 400px;
+  height: 400px;
   overflow: hidden; }
 
 .question-container {
@@ -163,6 +191,17 @@ nav#main-nav {
   right: 0;
   bottom: 0;
   transition: transform .5s; }
+  .question-container h2 {
+    font-size: 2rem; }
+  .question-container ul {
+    list-style-type: none; }
+  .question-container li {
+    margin-bottom: .5rem; }
+  .question-container li button {
+    background: transparent;
+    padding: 0;
+    border: 0;
+    font-size: 1.25rem; }
 
 .answer-checkbox {
   height: 28px;
@@ -186,13 +225,41 @@ nav#main-nav {
 
 .slide-container {
   position: absolute;
-  top: 4rem;
-  bottom: 4rem;
-  right: 6rem;
-  left: 6rem;
   background: white;
   border-radius: 20px;
   overflow: hidden; }
+  @media screen and (max-width: 1400px) {
+    .slide-container {
+      top: 3rem;
+      bottom: 3rem; } }
+  @media screen and (max-width: 1000px) {
+    .slide-container {
+      top: 2rem;
+      bottom: 2rem; } }
+  @media screen and (max-width: 640px) {
+    .slide-container {
+      top: 1.5rem;
+      bottom: 1.5rem; } }
+  @media screen and (max-width: 500px) {
+    .slide-container {
+      top: 1rem;
+      bottom: 1rem; } }
+  @media screen and (max-width: 1400px) {
+    .slide-container {
+      left: 6rem;
+      right: 6rem; } }
+  @media screen and (max-width: 1000px) {
+    .slide-container {
+      left: 4rem;
+      right: 4rem; } }
+  @media screen and (max-width: 640px) {
+    .slide-container {
+      left: 2rem;
+      right: 2rem; } }
+  @media screen and (max-width: 500px) {
+    .slide-container {
+      left: 1rem;
+      right: 1rem; } }
 
 .slide-content {
   position: absolute;
@@ -219,29 +286,64 @@ nav#main-nav {
   position: absolute;
   top: -30px;
   right: 0;
-  height: 180px;
   left: 0;
+  height: 180px;
   background-image: url("/images/lights.png");
   background-size: contain;
   background-position: 50% 0;
   background-repeat: no-repeat; }
+  @media screen and (max-width: 1400px) {
+    .intro-lights {
+      height: 140px; } }
+  @media screen and (max-width: 1000px) {
+    .intro-lights {
+      height: 120px; } }
+  @media screen and (max-width: 640px) {
+    .intro-lights {
+      height: 100px; } }
+  @media screen and (max-width: 500px) {
+    .intro-lights {
+      height: 90px; } }
 
 .intro-text-container {
   position: absolute;
-  top: 42.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 600px;
+  width: 680px;
+  padding: 0 40px;
   max-width: 100%; }
-  .intro-text-container h1 {
-    font-size: 3.5rem; }
-  .intro-text-container .intro-text {
-    font-size: 1.75rem; }
-    .intro-text-container .intro-text strong {
-      display: block;
-      font-weight: bolder;
-      margin-bottom: 3rem; }
+  @media screen and (max-width: 1400px) {
+    .intro-text-container {
+      top: 45%; } }
+  @media screen and (max-width: 1000px) {
+    .intro-text-container {
+      top: 53%; } }
+  @media screen and (max-width: 640px) {
+    .intro-text-container {
+      top: 50%; } }
+  @media screen and (max-width: 1400px) {
+    .intro-text-container h1 {
+      font-size: 3.5rem; } }
+  @media screen and (max-width: 1000px) {
+    .intro-text-container h1 {
+      font-size: 3rem; } }
+  @media screen and (max-width: 500px) {
+    .intro-text-container h1 {
+      font-size: 2.25rem; } }
+  @media screen and (max-width: 1400px) {
+    .intro-text-container .intro-text {
+      font-size: 1.75rem; } }
+  @media screen and (max-width: 640px) {
+    .intro-text-container .intro-text {
+      font-size: 1.5rem; } }
+  @media screen and (max-width: 500px) {
+    .intro-text-container .intro-text {
+      font-size: 1.25rem; } }
+  .intro-text-container .intro-text strong {
+    display: block;
+    font-weight: bolder;
+    margin-bottom: 3rem; }
   .intro-text-container button {
     font-size: 2rem; }
 
@@ -255,6 +357,15 @@ nav#main-nav {
   background-size: contain;
   background-position: 100% 100%;
   background-repeat: no-repeat; }
+  @media screen and (max-width: 1280px) {
+    .intro-handyman {
+      right: -2rem;
+      bottom: 0rem;
+      width: 230px;
+      height: 400px; } }
+  @media screen and (max-width: 1000px) {
+    .intro-handyman {
+      display: none; } }
 
 .intro-band {
   position: absolute;
@@ -266,6 +377,21 @@ nav#main-nav {
   background-size: contain;
   background-position: 0 100%;
   background-repeat: no-repeat; }
+  @media screen and (max-width: 1400px) {
+    .intro-band {
+      left: 3rem; } }
+  @media screen and (max-width: 1280px) {
+    .intro-band {
+      left: -2rem; } }
+  @media screen and (max-width: 1400px) {
+    .intro-band {
+      width: 360px; } }
+  @media screen and (max-width: 1280px) {
+    .intro-band {
+      width: 240px; } }
+  @media screen and (max-width: 1000px) {
+    .intro-band {
+      display: none; } }
 
 .preamble-text-container {
   position: absolute;
@@ -273,16 +399,41 @@ nav#main-nav {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 600px;
+  width: 660px;
+  padding: 0 30px;
   max-width: 100%; }
+  @media screen and (max-width: 1400px) {
+    .preamble-text-container {
+      top: 54%; } }
+  @media screen and (max-width: 1000px) {
+    .preamble-text-container {
+      top: 52%; } }
+  @media screen and (max-width: 640px) {
+    .preamble-text-container {
+      top: 50%; } }
   .preamble-text-container h2 {
     font-size: 2rem;
-    margin-bottom: 2rem; }
+    margin-bottom: 2rem;
+    line-height: 1.125; }
+    @media screen and (max-width: 1400px) {
+      .preamble-text-container h2 {
+        font-size: 1.75rem; } }
+    @media screen and (max-width: 1000px) {
+      .preamble-text-container h2 {
+        font-size: 1.5rem; } }
+    @media screen and (max-width: 500px) {
+      .preamble-text-container h2 {
+        font-size: 1.25rem; } }
 
 .preamble-text {
   font-size: 1.5rem; }
+  @media screen and (max-width: 1000px) {
+    .preamble-text {
+      font-size: 1.25rem; } }
+  @media screen and (max-width: 640px) {
+    .preamble-text {
+      font-size: 1rem; } }
   .preamble-text strong {
-    white-space: nowrap;
     display: block; }
 
 .preamble-start-quiz-button {
@@ -332,6 +483,15 @@ nav#main-nav {
   background-size: contain;
   background-position: 50% 0;
   background-repeat: no-repeat; }
+  @media screen and (max-width: 1400px) {
+    .preamble-cable {
+      height: 140px; } }
+  @media screen and (max-width: 1000px) {
+    .preamble-cable {
+      height: 120px; } }
+  @media screen and (max-width: 640px) {
+    .preamble-cable {
+      height: 100px; } }
 
 .preamble-computer {
   position: absolute;
@@ -343,6 +503,15 @@ nav#main-nav {
   background-size: contain;
   background-position: 0 100%;
   background-repeat: no-repeat; }
+  @media screen and (max-width: 1280px) {
+    .preamble-computer {
+      left: -3rem;
+      bottom: 3rem;
+      width: 260px;
+      height: 260px; } }
+  @media screen and (max-width: 1000px) {
+    .preamble-computer {
+      display: none; } }
 
 .preamble-hammer {
   position: absolute;
@@ -354,6 +523,13 @@ nav#main-nav {
   background-size: contain;
   background-position: 100% 100%;
   background-repeat: no-repeat; }
+  @media screen and (max-width: 1280px) {
+    .preamble-hammer {
+      right: -3rem;
+      bottom: 3rem; } }
+  @media screen and (max-width: 1000px) {
+    .preamble-hammer {
+      display: none; } }
 
 .background {
   background-color: #3191c2;

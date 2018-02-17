@@ -1,0 +1,26 @@
+@mixin set-values($properties, $breakpoints, $values) {
+  @if (type-of($properties) == list) {
+    @each $breakpoint in $breakpoints {
+      @media screen and (max-width: $breakpoint) {
+        @each $property in $properties {
+          @if ($property) {
+            $i: index($breakpoints, $breakpoint);
+            @if (nth($values, $i) != NULL) {
+              #{$property}: nth($values, $i);
+            }
+          }
+        }
+      }
+    }
+  }
+  @else {
+    @each $breakpoint in $breakpoints {
+      $i: index($breakpoints, $breakpoint);
+      @if (nth($values, $i) != NULL) {
+        @media screen and (max-width: $breakpoint) {
+          #{$properties}: nth($values, $i);
+        }
+      }
+    }
+  }
+}

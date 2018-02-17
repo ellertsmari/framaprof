@@ -4,20 +4,27 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 600px;
+  width: 660px;
+  padding: 0 30px;
   max-width: 100%;
+
+  @include set-values(top, $breakpoints, 54% 52% 50% NULL);
 
   h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
+    line-height: 1.125;
+
+    @include set-values(font-size, $breakpoints, 1.75rem 1.5rem NULL 1.25rem);
   } 
 }
 
 .preamble-text {
   font-size: 1.5rem;
 
+  @include set-values(font-size, $breakpoints, NULL 1.25rem 1rem NULL);
+
   strong {
-    white-space: nowrap;
     display: block;
   }
 }
@@ -75,6 +82,8 @@
   background-size: contain;
   background-position: 50% 0;
   background-repeat: no-repeat;
+
+  @include set-values(height, $breakpoints, 140px 120px 100px NULL);
 }
 
 .preamble-computer {
@@ -87,6 +96,17 @@
   background-size: contain;
   background-position: 0 100%;
   background-repeat: no-repeat;
+
+  @media screen and (max-width: 1280px) {
+    left: -3rem;
+    bottom: 3rem;
+    width: 260px;
+    height: 260px;
+  }
+
+  @media screen and (max-width: $md) {
+    display: none;
+  }
 }
 
 .preamble-hammer {
@@ -99,4 +119,13 @@
   background-size: contain;
   background-position: 100% 100%;
   background-repeat: no-repeat;
+
+  @media screen and (max-width: 1280px) {
+    right: -3rem;
+    bottom: 3rem;
+  }
+
+  @media screen and (max-width: $md) {
+    display: none;
+  }
 }

@@ -10,29 +10,33 @@
   position: absolute;
   top: -30px;
   right: 0;
-  height: 180px;
   left: 0;
+  height: 180px;
   background-image: url("/images/lights.png");
   background-size: contain;
   background-position: 50% 0;
   background-repeat: no-repeat;
+
+  @include set-values(height, $breakpoints, 140px 120px 100px 90px);
 }
 
 .intro-text-container {
   position: absolute;
-  top: 42.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 600px;
+  width: 680px;
+  padding: 0 40px;
   max-width: 100%;
 
+  @include set-values(top, $breakpoints, 45% 53% 50% NULL);
+
   h1 {
-    font-size: 3.5rem;
+    @include set-values(font-size, $breakpoints, 3.5rem 3rem NULL 2.25rem);
   }
 
   .intro-text {
-    font-size: 1.75rem;
+    @include set-values(font-size, $breakpoints, 1.75rem NULL 1.5rem 1.25rem);
 
     strong {
       display: block;
@@ -60,6 +64,17 @@
   background-size: contain;
   background-position: 100% 100%;
   background-repeat: no-repeat;
+
+  @media screen and (max-width: 1280px) {
+    right: -2rem;
+    bottom: 0rem;
+    width: 230px;
+    height: 400px;
+  }
+
+  @media screen and (max-width: $md) {
+    display: none;
+  }
 }
 
 .intro-band {
@@ -72,6 +87,13 @@
   background-size: contain;
   background-position: 0 100%;
   background-repeat: no-repeat;
+
+  @include set-values(left,  $lg 1280px, 3rem -2rem);
+  @include set-values(width, $lg 1280px, 360px 240px);
+
+  @media screen and (max-width: $md) {
+    display: none;
+  }
 }
 
 .start-quiz-button {
