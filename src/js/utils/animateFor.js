@@ -26,7 +26,6 @@ export default function animateFor(func, options = defaultOpts, cb) {
   const animate = () => {
     const actualF = (Date.now() - startTime) / opts.duration;
     f = easing(actualF);
-    console.log(f);
 
     if (cancelled) { return f; }
 

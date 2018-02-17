@@ -6,6 +6,7 @@ import Layout from "./js/components/Layout";
 import Slide from "./js/components/Slide";
 import FixedContent from "./js/components/FixedContent";
 import Preamble from "./js/components/Preamble";
+import axios from 'axios';
 
 const colors = [
   "#3191c2",
@@ -19,9 +20,9 @@ class App extends Component {
     super(props);
 
     this.state = {
-      onScreen: "INTRO",
       scores: [],
       pageIndex: 0,
+      loading: true,
     };
 
     this.screens = [
@@ -39,6 +40,7 @@ class App extends Component {
       />,
       props => <Quiz
         {...props}
+        questions={this.state.questions}
         updateScore={this.updateScore}
         completeQuiz={() => this.setState({ pageIndex: 3 })}
       />,
@@ -50,6 +52,19 @@ class App extends Component {
 
     this.updateScore = this.updateScore.bind(this);
     this.getScore = this.getScore.bind(this);
+  }
+
+  componentDidMount() {
+    axios.get("http://framaprof.vefskoli.is/api")
+      .then(({ data }) => {
+        this.setState({
+          loading: false,
+          questions: data.results,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   updateScore(newScore, qIndex) {
@@ -69,24 +84,24 @@ class App extends Component {
         ],
       });
     }
-
-    setTimeout(() => {
-      console.log(this.getScore(), this.state);
-    })
   }
 
   getScore() {
-    const score = {};
+    const scoreObj = {};
 
     for (let i = 0; i < this.state.scores.length; i += 1) {
-      const currentScore = this.state.scores[i];
-      const keys = Object.keys(currentScore);
-      keys.forEach((key) => {
-        score[key] = (score[key] || 0) + currentScore[key];
-      });
+      for (let j = 0; j < this.state.scores[i].length; j += 1) {
+        const { name, score } = this.state.scores[i][j];
+
+        if (typeof scoreObj[name] !== "number") {
+          scoreObj[name] = 0;
+        }
+
+        scoreObj[name] += score;
+      }
     }
 
-    return score;
+    return scoreObj;
   }
 
   setPageIndex(pageIndex) {
@@ -96,6 +111,14 @@ class App extends Component {
   }
 
   render() {
+    if (this.state.loading) {
+      return (
+        <div>
+          Loading
+        </div>
+      )
+    }
+
     return (
       <Layout>
         <FixedContent pageIndex={this.state.pageIndex} />

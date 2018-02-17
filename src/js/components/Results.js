@@ -18,7 +18,6 @@ export default class Results extends React.Component {
 
       setTimeout(() => {
         this.setState({ calculatedResults: true, orderedkeys: keys });
-        console.log("CALCULATED RESULTS");
       }, 300);
     }
   }

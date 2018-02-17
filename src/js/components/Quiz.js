@@ -5,44 +5,7 @@ export default class Quiz extends React.Component {
   constructor(props) {
     super(props);
 
-    this.questions = [
-      {
-        text: "This is the first question, and it's really hard",
-        answers: [
-          { text: "This is the first answer", score: { x: 1, y: 0, z: 0.5 } },
-          { text: "This is the second answer", score: { x: 1, y: 1, z: 0.5 } },
-          { text: "This is the third answer", score: { x: 0, y: 3, z: 1 } },
-          { text: "This is the fourth answer", score: { x: 1, y: 0, z: 2 } },
-        ],
-      },
-      {
-        text: "Second question, think you can handle it?",
-        answers: [
-          { text: "1", score: { x: 1, y: 0, z: 0.5 } },
-          { text: "2", score: { x: 1, y: 1, z: 0.5 } },
-          { text: "3", score: { x: 0, y: 3, z: 1 } },
-          { text: "4", score: { x: 1, y: 0, z: 2 } },
-        ],
-      },
-      {
-        text: "Question 3",
-        answers: [
-          { text: "1", score: { x: 1, y: 0, z: 0.5 } },
-          { text: "2", score: { x: 1, y: 1, z: 0.5 } },
-          { text: "3", score: { x: 0, y: 3, z: 1 } },
-          { text: "4", score: { x: 1, y: 0, z: 2 } },
-        ],
-      },
-      {
-        text: "Question 4",
-        answers: [
-          { text: "1", score: { x: 1, y: 0, z: 0.5 } },
-          { text: "2", score: { x: 1, y: 1, z: 0.5 } },
-          { text: "3", score: { x: 0, y: 3, z: 1 } },
-          { text: "4", score: { x: 1, y: 0, z: 2 } },
-        ],
-      },
-    ];
+    this.questions = this.props.questions;
 
     this.state = {
       questionIndex: 0,
@@ -59,12 +22,6 @@ export default class Quiz extends React.Component {
       ? null
       : aIndex;
 
-    console.log(this.state.answers.map((a, i) => (
-      i === qIndex
-        ? newIndex
-        : a
-    )));
-
     this.setState({
       answers: this.state.answers.map((a, i) => (
         i === qIndex
@@ -76,7 +33,7 @@ export default class Quiz extends React.Component {
     if (newIndex === null) {
       this.props.updateScore({}, qIndex);
     } else {
-      this.props.updateScore(this.questions[qIndex].answers[aIndex].score, qIndex)
+      this.props.updateScore(this.questions[qIndex].answers[aIndex].scores, qIndex)
     }
   }
 
@@ -119,7 +76,7 @@ export default class Quiz extends React.Component {
                 className="question-container"
                 style={{ transform: getQuestionTranslate(qIndex) }}
               >
-                <h2>{question.text}</h2>
+                <h2>{question.question}</h2>
                 <ul>
                   {
                     question.answers.map((answer, aIndex) => (
