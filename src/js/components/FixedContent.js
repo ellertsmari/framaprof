@@ -1,10 +1,8 @@
 import React from "react";
 
+// <img src="images/logo.png" alt="Framaprófið" />
 export default function FixedContent(props) {
   return [
-    <a href="#" key="1">
-      <img src="images/logo.png" alt="Framaprófið" />
-    </a>,
     <div
       className="disco-ball"
       key="2"

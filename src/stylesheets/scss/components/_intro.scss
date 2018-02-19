@@ -4,6 +4,10 @@
   right: 0;
   left: 0;
   bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .intro-lights {
@@ -20,20 +24,59 @@
   @include set-values(height, $breakpoints, 140px 120px 100px 90px);
 }
 
+.intro-singers {
+  background-image: url("/images/singers.png");
+  background-size: contain;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  max-width: 800px;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  
+  @include set-values(height, $breakpoints, 140px 120px 100px 90px);
+
+  @media screen and (max-width: $md) {
+    background-image: url("/images/singer.png");
+  }
+}
+
 .intro-text-container {
   @include text-container;
+  color: white;
+  margin-top: 160px;
+  text-shadow: 0 2px 16px rgba(0,0,0,.2);
+
+  @include set-values(margin-top, $breakpoints, 140px 120px 100px 90px);
 
   h1 {
+    font-size: 3.5rem;
     @include set-values(font-size, $breakpoints, 3.5rem 3rem NULL 2.25rem);
   }
 
   .intro-text {
+    font-size: 1.75rem;
+    margin-bottom: 0;
     @include set-values(font-size, $breakpoints, 1.75rem NULL 1.5rem 1.25rem);
 
-    strong {
-      display: block;
+    button {
       font-weight: bolder;
       margin-bottom: 3rem;
+      background: transparent;
+      color: white;
+      border: none;
+      text-decoration: underline;
+      font-size: 1.25em;
+      margin-top: 1rem;
+      text-shadow: 0 2px 16px rgba(0,0,0,.2);
+
+      @media screen and (max-height: 800px) {
+        margin-bottom: 1rem;
+      }
+
+      @media screen and (max-width: $md) {
+        margin-bottom: 1rem;
+      }
     }
   }
   

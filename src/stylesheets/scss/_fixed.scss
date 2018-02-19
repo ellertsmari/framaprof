@@ -12,13 +12,31 @@
   right: nth($disco-ball-right, 1);
 
   @include set-values(right, $breakpoints, $disco-ball-right);
-  @include set-values(width, $breakpoints, 200px 140px 120px NULL);
+  @include set-values(width, $breakpoints, 200px 140px NULL NULL);
 
-  @media screen and (max-width: $xs) {
+  @media screen and (max-width: $sm) {
     display: none;
   }
 
   @media screen and (max-height: 600px) {
     max-height: 240px;
+  }
+}
+
+.logo {
+  position: absolute;
+  z-index: 100;
+  color: white;
+  top: 2rem;
+  left: 2rem;
+  transform: translateY(-5rem);
+  transition: transform 1s;
+
+  &.on-screen {
+    transform: translateY(0);
+  }
+
+  img {
+    height: 2.75rem;
   }
 }
