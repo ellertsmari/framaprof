@@ -74,7 +74,7 @@ class App extends Component {
         ]
       })
     } else {
-      axios.get("http://framaprof.vefskoli.is/api/")
+      axios.get("http://framaprof.is/api/")
         .then(({ data }) => {
           console.log(data.results);
           this.setState({
