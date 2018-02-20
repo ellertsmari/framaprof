@@ -1,11 +1,6 @@
 import React from "react";
-import PrimaryButton from "./PrimaryButton";
 
 export default class Intro extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="intro-container">
