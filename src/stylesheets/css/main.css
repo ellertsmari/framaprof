@@ -184,6 +184,57 @@ nav#main-nav {
   .logo img {
     height: 2.75rem; }
 
+.slide-dot-container {
+  position: fixed;
+  top: 50%;
+  right: calc(50% - (1180px / 2));
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  transform: translate(calc(100% + 1rem), -100%); }
+  @media screen and (max-width: 1380px) {
+    .slide-dot-container {
+      right: 6rem; } }
+  @media screen and (max-width: 1000px) {
+    .slide-dot-container {
+      right: 4rem; } }
+  @media screen and (max-width: 640px) {
+    .slide-dot-container {
+      right: 2rem; } }
+  @media screen and (max-width: 500px) {
+    .slide-dot-container {
+      right: 1rem; } }
+  @media screen and (max-width: 640px) {
+    .slide-dot-container {
+      display: none; } }
+
+.slide-dot {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  width: 20px;
+  height: 20px;
+  margin-bottom: .5rem;
+  border: 1px solid white;
+  border-radius: 50%; }
+  .slide-dot:last-child {
+    margin-bottom: 0; }
+  .slide-dot:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 0;
+    width: 0;
+    transition: width .4s, height .4s;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 50%; }
+  .slide-dot.active:after {
+    width: 14px;
+    height: 14px; }
+
 .primary-button-container {
   background: none;
   position: relative;

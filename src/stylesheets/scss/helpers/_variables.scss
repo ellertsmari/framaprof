@@ -6,7 +6,11 @@ $lg: 1400px;
 $h-padding: 6rem, 4rem, 2rem, 1rem;
 $v-padding: 3rem, 2.5rem, 2.5rem, 2.5rem;
 
+
 $disco-ball-right: 3rem 2.5rem 2rem 1.5rem;
+
+$slide-margin: calc(50% - (1180px / 2));
+$slide-margin-bp: 1380px, $md, $sm, $xs;
 
 $breakpoints: $lg, $md, $sm, $xs;
 

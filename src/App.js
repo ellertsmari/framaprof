@@ -29,6 +29,7 @@ class App extends Component {
     this.getScore = this.getScore.bind(this);
     this.getQuestions = this.getQuestions.bind(this);
     this.onFacebookLogin = this.onFacebookLogin.bind(this);
+    this.onSlideDotClick = this.onSlideDotClick.bind(this);
 
     this.componentArr = [
       props => <Intro
@@ -55,6 +56,20 @@ class App extends Component {
 
   componentDidMount() {
     this.getQuestions();
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (this.state.pageIndex !== nextState.pageIndex) {
+      for (let i = 0; i < this.componentArr.length; i += 1) {
+        const isTransitioning = (
+          i === this.state.pageIndex ||
+          i === nextState.pageIndex);
+
+        const el = document.getElementById(`slide-${i}`);
+        el.style.transition = isTransitioning ? "" : "none";
+        el.style.zIndex = isTransitioning ? (30 - i) : "";
+      }
+    }
   }
 
   getQuestions() {
@@ -120,6 +135,12 @@ class App extends Component {
     });
   }
 
+  onSlideDotClick(i) {
+    this.setState({
+      pageIndex: i,
+    });
+  }
+
   render() {
     if (this.state.loading) {
       return (
@@ -139,7 +160,10 @@ class App extends Component {
 
     return (
       <Layout>
-        <FixedContent pageIndex={this.state.pageIndex} />
+        <FixedContent
+          pageIndex={this.state.pageIndex}
+          onSlideDotClick={this.onSlideDotClick}
+        />
         <div
           className="background"
           style={{
@@ -162,6 +186,7 @@ class App extends Component {
                   <Slide
                     dark={i === 0}
                     key={i}
+                    id={`slide-${i}`}
                     currentPage={this.state.pageIndex}
                     pageIndex={i}
                   >
