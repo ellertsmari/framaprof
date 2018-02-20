@@ -1,13 +1,17 @@
 .slide-container {
-  position: absolute;
+  position: fixed;
   top: nth($v-padding, 1);
   bottom: nth($v-padding, 1);
   left: nth($h-padding, 1);
   right: nth($h-padding, 1);
+  margin: 0 auto;
+  max-width: 1180px;
+  max-height: 800px;
   @include set-values(top bottom, $breakpoints, $v-padding);
   @include set-values(left right, $breakpoints, $h-padding);
   background: white;
-  border-radius: 20px;
+  border-radius: 23px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.2);
   overflow: hidden;
 }
 
@@ -32,8 +36,4 @@
   &.dark {
     background-image: url("/images/stage_dark.jpg");
   }
-}
-
-.slide-scroll-container {
-
 }

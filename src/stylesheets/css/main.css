@@ -306,13 +306,17 @@ nav#main-nav {
     height: 2rem; }
 
 .slide-container {
-  position: absolute;
+  position: fixed;
   top: 3rem;
   bottom: 3rem;
   left: 6rem;
   right: 6rem;
+  margin: 0 auto;
+  max-width: 1180px;
+  max-height: 800px;
   background: white;
-  border-radius: 20px;
+  border-radius: 23px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden; }
   @media screen and (max-width: 1400px) {
     .slide-container {
