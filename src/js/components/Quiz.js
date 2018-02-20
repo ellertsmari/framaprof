@@ -46,7 +46,9 @@ export default class Quiz extends React.Component {
   }
 
   next() {
-    if (this.state.questionIndex < this.questions.length) {
+    if (this.state.questionIndex >= this.state.answers.length - 1) {
+      this.props.completeQuiz();
+    } else if (this.state.questionIndex < this.questions.length) {
       this.setState({
         questionIndex: this.state.questionIndex + 1,
       });
@@ -87,6 +89,7 @@ export default class Quiz extends React.Component {
                           onClick={() => this.onAnswerClick(qIndex, aIndex)}
                         />
                         <button
+                          className="quiz-answer-text"
                           onClick={() => this.onAnswerClick(qIndex, aIndex)}
                         >
                           {answer.text}
@@ -102,21 +105,10 @@ export default class Quiz extends React.Component {
                 >
                   Næsta spurning
                 </PrimaryButton>
+                <p className="question-number">Spurning {qIndex + 1} af {this.state.answers.length}</p>
               </div>
             ))
           }
-          <div
-            className="question-container"
-            style={{ transform: getQuestionTranslate(this.questions.length) }}
-          >
-            <h2>Tilbúinn að sjá niðurstöðurnar?</h2>
-            <p>
-              Smelltu á takkan fyrir neðan til þess að sjá niðurstöðurnar.
-            </p>
-            <button onClick={this.props.completeQuiz}>
-              Checkum þetta
-            </button>
-          </div>
         </div>
         {/*
         <button onClick={this.prev}>Back</button>

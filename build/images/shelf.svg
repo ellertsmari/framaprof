@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="970px" height="110px" viewBox="0 0 970 110" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>hilla</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-6.1%" y="-60.6%" width="112.2%" height="313.5%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="24" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="14.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="nidurstodur" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-235.000000, -273.000000)">
+        <g id="hilla" filter="url(#filter-1)" transform="translate(264.000000, 278.000000)">
+            <polygon id="Fill-8" fill="#CDCDCD" points="0 52 912 52 912 26 0 26"></polygon>
+            <polygon id="Fill-9" fill="#F4F4F2" points="53.3818011 0 0 26 912 26 861.554396 0"></polygon>
+        </g>
+    </g>
+</svg>

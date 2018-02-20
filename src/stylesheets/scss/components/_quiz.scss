@@ -13,15 +13,14 @@
 .question-list-container {
   position: absolute;
   top: 0;
-  right: 1rem;
-  left: 1rem;
+  right: 2rem;
+  left: 2rem;
   bottom: 0;
   overflow: hidden;
 }
 
 .question-container {
   position: absolute;
-  padding-top: 20%;
   top: 0;
   left: 0;
   right: 0;
@@ -29,14 +28,19 @@
   overflow-y: auto;
   overflow-x: hidden;
   transition: transform .5s;
+  margin-top: 10rem;
+
+  @media screen and (max-width: $md) {
+    margin-top: 8rem;
+  }
 
   h2 {
     font-size: 2rem;
-    padding-left: 3rem;
   }
 
   ul {
     list-style-type: none;
+    margin-bottom: 3rem;
   }
 
   li {
@@ -44,7 +48,7 @@
     margin-bottom: .5rem;
   }
 
-  li button {
+  li .quiz-answer-text {
     background: transparent;
     padding: 4px 0 0;
     border: 0;
@@ -53,17 +57,28 @@
   }
 }
 
+.question-number {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: bolder;
+  text-align: center;
+}
+
 .quiz-question-text {
   
 }
 
 .answer-checkbox {
-  height: 2rem;
-  min-width: 2rem;
+  height: 24px;
+  min-width: 24px;
   position: relative;
   vertical-align: top;
   margin-right: 1rem;
   display: inline-block;
+  border: 1px solid $quiz-color;
+  border-radius: 4px;
+  background: transparent;
+  margin-left: 6px;
   
   &:after {
     content: "";
@@ -72,10 +87,13 @@
     left: 50%;
     width: 0px;
     height: 0px;
-    background-color: #00bfad;
     transform: translate(-50%, -50%);
+    background-image: url("/images/cross.svg");
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+
     transition: all .3s;
-    border-radius: 50%;
   }
 
   &.checked {

@@ -9,7 +9,7 @@ import Preamble from "./js/components/Preamble";
 import axios from 'axios';
 
 const colors = [
-  "#3191c2",
+  "#014e67",
   "#e44b4a",
   "#00bfad",
   "#00bfad",
@@ -74,7 +74,7 @@ class App extends Component {
         ]
       })
     } else {
-      axios.get("http://framaprof.vefskoli.is/api/")
+      axios.get("http://framaprof.is/api/")
         .then(({ data }) => {
           console.log(data.results);
           this.setState({
@@ -150,10 +150,21 @@ class App extends Component {
           }}
         >
           <div className="slide-container">
+            <a
+              href="#"
+              className={"logo" + (this.state.pageIndex !== 0 ? " on-screen" : "")}
+              alt="Site logo"
+            >
+              <img
+                src="/images/logo.svg"
+                alt="Site logo"
+              />
+            </a>
             {
               this.componentArr
                 .map((Component, i) => (
                   <Slide
+                    dark={i === 0}
                     key={i}
                     currentPage={this.state.pageIndex}
                     pageIndex={i}

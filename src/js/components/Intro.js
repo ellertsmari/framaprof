@@ -10,18 +10,14 @@ export default class Intro extends React.Component {
     return (
       <div className="intro-container">
         <div className="intro-lights" />
-        <div className="intro-handyman" />
-        <div className="intro-band" />
         <div className="intro-text-container">
           <h1>Frama Prófið</h1>
           <p className="intro-text">
             Það geta ekki allir orðið Eurovision stjörnur en það geta allir átt sinn frama!<br />
-            <strong>Hver er þinn frami?</strong>
+            <button onClick={this.props.nextScreen}>Hver er þinn frami?</button>
           </p>
-          <PrimaryButton onClick={this.props.nextScreen} color="#3191c2">
-            Byrja prófið
-          </PrimaryButton>
         </div>
+        <div className="intro-singers" />
       </div>
     );
   }

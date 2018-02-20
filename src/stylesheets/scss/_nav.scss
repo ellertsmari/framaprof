@@ -1,9 +1,13 @@
 nav#main-nav {
   position: fixed;
-  bottom: $v-padding - 2rem;
-  right: $h-padding;
+  bottom: nth($v-padding, 1);
+  right: nth($h-padding, 1);
   display: flex;
   z-index: 100;
+
+  @include set-values(bottom, $breakpoints, $v-padding);
+  @include set-values(right, $breakpoints, $h-padding);
+  transform: translateY(calc(100% + .5rem));
 
   p {
     color: white;

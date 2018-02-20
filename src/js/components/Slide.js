@@ -10,7 +10,7 @@ export default class Slide extends React.Component {
 
     return (
       <div
-        className={"slide-content" + (isActive ? " active" : "")}
+        className={"slide-content" + (isActive ? " active" : "") + (this.props.dark ? " dark" : "")}
         style={{ transform: translate, zIndex: 20 - this.props.pageIndex }}
       >
         {
