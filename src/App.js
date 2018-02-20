@@ -12,7 +12,7 @@ const colors = [
   "#014e67",
   "#e44b4a",
   "#00bfad",
-  "#00bfad",
+  "#3191c2",
 ];
 
 class App extends Component {
@@ -49,6 +49,7 @@ class App extends Component {
       />,
       props => <Results
         {...props}
+        picture={this.state.userData && this.state.userData.picture}
         score={this.getScore()}
       />
     ];

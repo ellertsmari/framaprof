@@ -26,13 +26,10 @@ export default class Results extends React.Component {
   }
 
   render() {
-    if (!this.props.isActive) {
-      return null;
-    }
-
     return (
       this.state.calculatedResults
         ? (
+          /*
           <div className="results-container">
             <ul className="results-top-list">
               {
@@ -70,6 +67,45 @@ export default class Results extends React.Component {
               </div>
               <div className="results-tv-container">
                 <div className="results-tv" />
+              </div>
+            </div>
+          </div>
+          */
+          <div className="results-container">
+            <div className="results-shelf-container">
+              <ul className="results-list">
+                {
+                  this.state.top.map(key => (
+                    <li className="result-item" key={key}>
+                      <p>{Math.round(this.props.score[key])}</p>
+                      <p className="result-item-value">{key}</p>
+                    </li>
+                  ))
+                }
+              </ul>
+              <div className="result-shelf" />
+            </div>
+            <div className="results-mid-container">
+              <div className="results-image-container">
+                <div className="results-image-frame" />
+                <div className="results-image-frame-shadow" />
+                <div
+                  className="results-image"
+                  style={{
+                    backgroundImage: this.props.picture
+                      ? `url("${this.props.picture.url}")`
+                      : "none"
+                  }}
+                />
+              </div>
+              <div className="results-text-container">
+                <p className="results-subtitle">Þinn frami gæti legið í</p>
+                <h2>
+                  {this.state.top[0]}
+                </h2>
+                <PrimaryButton color="#3191c2">
+                  Deila
+                </PrimaryButton>
               </div>
             </div>
           </div>
