@@ -6,13 +6,13 @@ import Layout from "./js/components/Layout";
 import Slide from "./js/components/Slide";
 import FixedContent from "./js/components/FixedContent";
 import Preamble from "./js/components/Preamble";
-import axios from 'axios';
+import fetchQuestions from './js/api/fetchQuestions';
 
 const colors = [
   "#014e67",
   "#e44b4a",
   "#00bfad",
-  "#00bfad",
+  "#3191c2",
 ];
 
 class App extends Component {
@@ -25,9 +25,11 @@ class App extends Component {
       loading: true,
     };
 
-    this.screens = [
-      { component: Intro, }
-    ];
+    this.updateScore = this.updateScore.bind(this);
+    this.getScore = this.getScore.bind(this);
+    this.getQuestions = this.getQuestions.bind(this);
+    this.onFacebookLogin = this.onFacebookLogin.bind(this);
+    this.onSlideDotClick = this.onSlideDotClick.bind(this);
 
     this.componentArr = [
       props => <Intro
@@ -35,6 +37,7 @@ class App extends Component {
         nextScreen={() => this.setState({ pageIndex: 1 })}
       />,
       props => <Preamble
+        onFacebookLogin={this.onFacebookLogin}
         nextScreen={() => this.setState({ pageIndex: 2 })}
         {...props}
       />,
@@ -46,46 +49,44 @@ class App extends Component {
       />,
       props => <Results
         {...props}
+        picture={this.state.userData && this.state.userData.picture}
         score={this.getScore()}
       />
     ];
-
-    this.updateScore = this.updateScore.bind(this);
-    this.getScore = this.getScore.bind(this);
   }
 
   componentDidMount() {
-    const useFakeData = false;
-    if (useFakeData) {
-      this.setState({
-        loading: false,
-        questions:[
-          {
-            question: "Hér er spurning",
-            answers: [
-              {
-                text: "Hér er svar 1",
-                scores: [
-                  { name: "Byggingatækni", score: 1 },
-                ],
-              },
-            ],
-          },
-        ]
-      })
-    } else {
-      axios.get("http://framaprof.is/api/")
-        .then(({ data }) => {
-          console.log(data.results);
-          this.setState({
-            loading: false,
-            questions: data.results,
-          });
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+    this.getQuestions();
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (this.state.pageIndex !== nextState.pageIndex) {
+      for (let i = 0; i < this.componentArr.length; i += 1) {
+        const isTransitioning = (
+          i === this.state.pageIndex ||
+          i === nextState.pageIndex);
+
+        const el = document.getElementById(`slide-${i}`);
+        el.style.transition = isTransitioning ? "" : "none";
+        el.style.zIndex = isTransitioning ? (30 - i) : "";
+      }
     }
+  }
+
+  getQuestions() {
+    fetchQuestions()
+      .then((data) => {
+        this.setState({
+          loading: false,
+          questions: data,
+        });
+      })
+      .catch((err) => {
+        this.setState({
+          loading: false,
+          err,
+        });
+      });
   }
 
   updateScore(newScore, qIndex) {
@@ -125,9 +126,19 @@ class App extends Component {
     return scoreObj;
   }
 
+  onFacebookLogin(data) {
+    this.setState({ userData: data });
+  }
+
   setPageIndex(pageIndex) {
     this.setState({
       pageIndex,
+    });
+  }
+
+  onSlideDotClick(i) {
+    this.setState({
+      pageIndex: i,
     });
   }
 
@@ -140,9 +151,20 @@ class App extends Component {
       )
     }
 
+    if (this.state.err) {
+      return (
+        <div>
+          Gat ekki sótt spurningar.
+        </div>
+      )
+    }
+
     return (
       <Layout>
-        <FixedContent pageIndex={this.state.pageIndex} />
+        <FixedContent
+          pageIndex={this.state.pageIndex}
+          onSlideDotClick={this.onSlideDotClick}
+        />
         <div
           className="background"
           style={{
@@ -150,8 +172,7 @@ class App extends Component {
           }}
         >
           <div className="slide-container">
-            <a
-              href="#"
+            <div
               className={"logo" + (this.state.pageIndex !== 0 ? " on-screen" : "")}
               alt="Site logo"
             >
@@ -159,13 +180,14 @@ class App extends Component {
                 src="/images/logo.svg"
                 alt="Site logo"
               />
-            </a>
+            </div>
             {
               this.componentArr
                 .map((Component, i) => (
                   <Slide
                     dark={i === 0}
                     key={i}
+                    id={`slide-${i}`}
                     currentPage={this.state.pageIndex}
                     pageIndex={i}
                   >

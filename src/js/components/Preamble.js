@@ -1,7 +1,37 @@
 import React from "react";
 import PrimaryButton from "./PrimaryButton";
+import FacebookLoginButton from "./FacebookLogin";
 
 export default class Preamble extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: false,
+    };
+
+    this.onLogin = this.onLogin.bind(this);
+    this.onLoginStart = this.onLoginStart.bind(this);
+  }
+
+  onLoginStart() {
+    this.setState({
+      loading: true,
+    });
+  }
+
+  onLogin(err, data) {
+    this.setState(err
+      ? { loading: false, err }
+      : { loading: false });
+
+    // No data is returned if the user closed the popup.
+    if (data) {
+      this.props.onFacebookLogin(data);
+      this.props.nextScreen();
+    }
+  }
+
   render() {
     return (
       <div className="preamble-container">
@@ -19,9 +49,16 @@ export default class Preamble extends React.Component {
           <PrimaryButton onClick={this.props.nextScreen} color="#e44b4a">
             Taka próf
           </PrimaryButton>
-          <p className="preamble-with-facebook">
-            Með Facebook Auðkenningu
-          </p> 
+          <FacebookLoginButton
+            onLoginStart={this.onLoginStart}
+            onLogin={this.onLogin}
+            text="Taka próf með Facebook"
+          />
+          {
+            this.state.loading
+              ? <p>Loading</p>
+              : null
+          }
           <button className="preamble-start-quiz-no-auth">
             Taka próf án auðkenningar
           </button>

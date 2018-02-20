@@ -14,6 +14,14 @@
   @include set-values(right, $breakpoints, $disco-ball-right);
   @include set-values(width, $breakpoints, 200px 140px NULL NULL);
 
+  @media screen and (max-height: 750px) and (max-width: 1240px) {
+    max-height: 215px;
+  }
+
+  @media screen and (max-height: 750px) and (max-width: 1080px) {
+    max-height: 180px;
+  }
+
   @media screen and (max-width: $sm) {
     display: none;
   }
@@ -38,5 +46,66 @@
 
   img {
     height: 2.75rem;
+  }
+
+  @media screen and (max-height: 750px) {
+    top: 1.5rem;
+    
+    img {
+      height: 2.25rem;
+    }
+  }
+}
+
+.slide-dot-container {
+  position: fixed;
+  top: 50%;
+  right: $slide-margin;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  @include set-values(right, $slide-margin-bp, $h-padding);
+  transform: translate(calc(100% + 1rem), -100%);
+
+  @media screen and (max-width: $sm) {
+    display: none;
+  }
+}
+
+$dot-width: 20px;
+
+.slide-dot {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  width: $dot-width;
+  height: $dot-width;
+  margin-bottom: .5rem;
+  border: 1px solid white;
+  border-radius: 50%;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 0;
+    width: 0;
+    transition: width .4s, height .4s;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 50%;
+  }
+
+  &.active {
+    &:after {
+      width: $dot-width - 6px;
+      height: $dot-width - 6px;
+    }
   }
 }
