@@ -57,6 +57,7 @@
   .intro-text {
     font-size: 1.75rem;
     margin-bottom: 0;
+    font-weight: lighter;
     @include set-values(font-size, $breakpoints, 1.75rem NULL 1.5rem 1.25rem);
 
     button {
