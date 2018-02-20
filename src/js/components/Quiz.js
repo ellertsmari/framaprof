@@ -55,10 +55,6 @@ export default class Quiz extends React.Component {
     }
   }
 
-  completeQuiz() {
-
-  }
-
   render() {
     const getQuestionTranslate = (qIndex) => {
       if (qIndex === this.state.questionIndex) {
@@ -68,8 +64,17 @@ export default class Quiz extends React.Component {
       }
     };
 
-    return (
-      <div className="quiz-container">
+    return [
+      <div className="quiz-lamp-container" key="0">
+        <div className="quiz-lamp" />
+      </div>,
+      <div className="quiz-tv-container" key="1">
+        <div className="quiz-tv" />
+      </div>,
+      <div className="quiz-radio-container" key="2">
+        <div className="quiz-radio" />
+      </div>,
+      <div className="quiz-container" key="3">
         <div className="question-list-container">
           {
             this.questions.map((question, qIndex) => (
@@ -78,6 +83,7 @@ export default class Quiz extends React.Component {
                 className="question-container"
                 style={{ transform: getQuestionTranslate(qIndex) }}
               >
+                <p className="question-title-number">{qIndex + 1}</p>
                 <h2>{question.question}</h2>
                 <ul>
                   {
@@ -120,6 +126,6 @@ export default class Quiz extends React.Component {
         </button>
         */}
       </div>
-    )
+    ];
   }
 }
