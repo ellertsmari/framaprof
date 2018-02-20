@@ -14,6 +14,14 @@
   @include set-values(right, $breakpoints, $disco-ball-right);
   @include set-values(width, $breakpoints, 200px 140px NULL NULL);
 
+  @media screen and (max-height: 750px) and (max-width: 1240px) {
+    max-height: 215px;
+  }
+
+  @media screen and (max-height: 750px) and (max-width: 1080px) {
+    max-height: 180px;
+  }
+
   @media screen and (max-width: $sm) {
     display: none;
   }
@@ -38,6 +46,14 @@
 
   img {
     height: 2.75rem;
+  }
+
+  @media screen and (max-height: 750px) {
+    top: 1.5rem;
+    
+    img {
+      height: 2.25rem;
+    }
   }
 }
 
