@@ -33,6 +33,7 @@ export default function FacebookLoginButton(props) {
       callback={(data) => fetchPhoto(data, props.onLogin)}
       onClick={props.onLoginStart}
       tag="p"
+      autoLoad={false}
       textButton={props.text}
       cssClass="facebook-login-button"
     />

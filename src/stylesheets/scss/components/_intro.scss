@@ -8,6 +8,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .intro-lights {
@@ -24,51 +33,49 @@
   @include set-values(height, $breakpoints, 140px 120px 100px 90px);
 }
 
-.intro-singers {
-  background-image: url("/images/singers.png");
-  background-size: contain;
-  background-position: 50% 0;
-  background-repeat: no-repeat;
-  max-width: 800px;
-  width: 100%;
-  flex-basis: 0;
-  flex-grow: 1;
-  
-  @include set-values(height, $breakpoints, 140px 120px 100px 90px);
+@keyframes intro-overlay-fade-in {
+  0% { opacity: 0; }
+  70% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
-  @media screen and (max-width: $md) {
-    background-image: url("/images/singer.png");
-  }
+.intro-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.5);
+  animation: intro-overlay-fade-in 3s;
 }
 
 .intro-text-container {
-  @include text-container;
+  position: absolute;
+  text-align: center;
+  width: 620px;
+  padding: 0 1rem;
+  max-width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
-  margin-top: 160px;
-  text-shadow: 0 2px 16px rgba(0,0,0,.2);
-
-  @include set-values(margin-top, $breakpoints, 140px 120px 100px 90px);
-
-  h1 {
-    font-size: 3.5rem;
-    @include set-values(font-size, $breakpoints, 3.5rem 3rem NULL 2.25rem);
-  }
+  margin: 0;
+  margin: 0;
+  overflow: visible;
 
   .intro-text {
     font-size: 1.75rem;
     margin-bottom: 0;
-    font-weight: lighter;
+    font-weight: 100;
     @include set-values(font-size, $breakpoints, 1.75rem NULL 1.5rem 1.25rem);
 
     button {
-      font-weight: bolder;
       margin-bottom: 3rem;
       background: transparent;
       color: white;
       border: none;
-      text-decoration: underline;
-      font-size: 1.25em;
-      margin-top: 1rem;
+      font-size: 1.75rem;
+      margin-top: 0;
       text-shadow: 0 2px 16px rgba(0,0,0,.2);
 
       @media screen and (max-height: 800px) {
@@ -80,14 +87,20 @@
       }
     }
   }
-  
-  h1 {
-    
-  }
 
   button {
     font-size: 1.5rem;
   }
+}
+
+.intro-logo {
+  background-image: url("/images/logo-white.svg");
+  background-size: contain;
+  width: 100%;
+  height: 80px;
+  margin-bottom: 2rem;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 .intro-handyman {

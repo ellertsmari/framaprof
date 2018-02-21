@@ -26,6 +26,11 @@
   @media screen and (max-width: 800px) {
     transform: none;
   }
+
+  @media screen and (max-width: $sm) {
+    left: 1rem;
+    right: 1rem;
+  }
 }
 
 .question-container {
@@ -57,15 +62,24 @@
     font-size: 1.75rem;
     font-weight: bolder;
     line-height: 1.3;
+    margin-bottom: 1rem;
 
     @media screen and (max-height: 750px) {
       font-size: 1.5rem;
+    }
+
+    @media screen and (max-width: $sm) {
+      font-size: 1.25rem;
     }
   }
 
   ul {
     list-style-type: none;
     margin-bottom: 3rem;
+
+    @media screen and (max-width: $sm) {
+      margin-bottom: 1.5rem;
+    }
   }
 
   li {
@@ -79,9 +93,15 @@
     border: 0;
     font-size: 1.25rem;
     text-align: left;
+    line-height: 1.3;
 
     @media screen and (max-height: 750px) {
       font-size: 1.125rem;
+      padding-top: 0;
+    }
+
+    @media screen and (max-width: $sm) {
+      font-size: 1rem;
     }
   }
 }
@@ -105,6 +125,10 @@
   font-size: 1rem;
   font-weight: bolder;
   text-align: center;
+
+  @media screen and (max-width: $sm) {
+    margin-top: 0;
+  }
 }
 
 .answer-checkbox {

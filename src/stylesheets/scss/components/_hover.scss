@@ -1,0 +1,55 @@
+.hover-area-wrapper {
+  position: relative;
+  overflow: visible;
+}
+
+@keyframes hover-fade-in {
+  from { transform: scale(.95, .93); opacity: 0; height: auto; width: auto; z-index: 50; }    
+  to   { transform: scale(1, 1);     opacity: 1; height: auto; width: auto; z-index: 50; }
+}
+
+@keyframes hover-fade-out {
+  from { transform: scale(1, 1);     opacity: 1; height: auto; width: auto; z-index: 50; }
+  to   { transform: scale(.95, .93); opacity: 0; height: auto; width: auto; z-index: 50; }
+}
+
+.hover-container {
+  background: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,.2);
+  border-radius: 8px;
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: -2rem;
+  transform: translate(0, 16px);
+  height: 0;
+  width: 0;
+  opacity: 0;
+  transform: scale(1, 1);
+  transform-origin: top left;
+  z-index: 1;
+  animation: hover-fade-out .4s;
+
+  &.active {
+    opacity: 1;
+    transform: scale(1, 1);
+    height: auto;
+    width: auto;
+    z-index: 50;
+    animation: hover-fade-in .4s;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 2rem;
+    border: 12px solid white;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top: none;
+  }
+}
+
+.hover-content {
+  padding: 1rem;
+}
