@@ -13,6 +13,12 @@
   border-radius: 23px;
   box-shadow: 0 8px 20px rgba(0,0,0,.2);
   overflow: hidden;
+
+  @media screen and (max-width: $sm) {
+    border-radius: 0;
+    top: 0;
+    box-shadow: none;
+  }
 }
 
 .slide-content {
@@ -34,6 +40,7 @@
   }
 
   &.dark {
-    background-image: url("/images/stage_dark.jpg");
+    background-image: none;
+    background-color: #0a3449;
   }
 }

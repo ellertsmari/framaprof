@@ -9,7 +9,12 @@ export default function PrimaryButton(props) {
           backgroundColor: props.color,
         }}
       />
-      <p className="primary-button-text">
+      <p
+        className="primary-button-text"
+        style={props.textColor
+          ? { color: props.textColor }
+          : {}}
+      >
         {
           props.children
         }

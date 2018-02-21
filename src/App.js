@@ -127,6 +127,7 @@ class App extends Component {
   }
 
   onFacebookLogin(data) {
+    console.log(data);
     this.setState({ userData: data });
   }
 

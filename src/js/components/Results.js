@@ -1,5 +1,6 @@
 import React from "react";
 import PrimaryButton from "./PrimaryButton";
+import Hover from "./Hover";
 
 export default class Results extends React.Component {
   constructor(props) {
@@ -29,56 +30,24 @@ export default class Results extends React.Component {
     return (
       this.state.calculatedResults
         ? (
-          /*
-          <div className="results-container">
-            <ul className="results-top-list">
-              {
-                this.state.top.map(key => (
-                  <li className="result-item" key={key}>
-                    <p>{this.props.score[key]}</p>
-                    <p className="result-item-value">{key}</p>
-                  </li>
-                ))
-              }
-            </ul>
-            <div className="results-main-container">
-              <div className="results-text-container">
-                <p>Þinn frami gæti legið í</p>
-                <h2>
-                  {this.state.top[0]}
-                </h2>
-                <p>
-                  <strong>
-                    Kynntu þér málið nánar hjá þeim skólum sem kenna {this.state.top[0]}
-                  </strong>
-                </p>
-                <p>
-                  <strong>Tækniskólinn</strong> - <a href="http://tskoli.is">Sjá nánar</a>
-                </p>
-                <p>
-                  <strong>Fjölbraut Ármúla</strong> - <a href="http://www.fa.is/">Sjá nánar</a>
-                </p>
-                <p className="results-about-the-test">
-                  Við bendum á að prófið er til gamans gert og ef þú hefur áhuga á að kynna þér námsgreinarnar betur þá getur þú leitað þér ráðgjafar hjá námsráðgjöfum skólanna.
-                </p>
-                <PrimaryButton color="#00bfad">
-                  Deila
-                </PrimaryButton>
-              </div>
-              <div className="results-tv-container">
-                <div className="results-tv" />
-              </div>
-            </div>
-          </div>
-          */
           <div className="results-container">
             <div className="results-shelf-container">
               <ul className="results-list">
                 {
                   this.state.top.map(key => (
                     <li className="result-item" key={key}>
-                      <p>{Math.round(this.props.score[key])}</p>
-                      <p className="result-item-value">{key}</p>
+                      <Hover content={(
+                        <div>
+                          <p>CONTENTCONTENTCONTENT</p>
+                          <p>CONTENTCONTENTCONTENT</p>
+                          <p>CONTENTCONTENTCONTENT</p>
+                          <p>CONTENTCONTENTCONTENT</p>
+                          <p>CONTENTCONTENTCONTENT</p>
+                        </div>
+                      )}>
+                        <p>{Math.round(this.props.score[key])}</p>
+                        <p className="result-item-value">{key}</p>
+                      </Hover>
                     </li>
                   ))
                 }
@@ -99,7 +68,7 @@ export default class Results extends React.Component {
                 />
               </div>
               <div className="results-text-container">
-                <p className="results-subtitle">Þinn frami gæti legið í</p>
+                <p className="results-subtitle">Þinn frami gæti legið í...</p>
                 <h2>
                   {this.state.top[0]}
                 </h2>
@@ -107,6 +76,14 @@ export default class Results extends React.Component {
                   Deila
                 </PrimaryButton>
               </div>
+            </div>
+            <div className="results-bottom-buttons">
+              <PrimaryButton color="#3191c2">
+                Ég vil læra {this.state.top[0]}
+              </PrimaryButton>
+              <PrimaryButton color="white" textColor="#3191c2">
+                Taka prófið aftur
+              </PrimaryButton>
             </div>
           </div>
         )
